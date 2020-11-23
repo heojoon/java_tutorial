@@ -1,2 +1,2 @@
-# java_tutorial
+# java_tutorials
 java tutorial by opentutorial
