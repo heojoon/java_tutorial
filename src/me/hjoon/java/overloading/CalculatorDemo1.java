@@ -1,0 +1,50 @@
+package me.hjoon.java.overloading;
+
+class Calculator {
+    int left, right;
+    int third = 0;
+
+	public void setOprands(int left, int right) {
+		System.out.println("setOprands(int left, int right)");
+		this.left = left;
+		this.right = right;
+	}
+	
+	public void setOprands(int left, int right , int third) {
+		System.out.println("setOprands(int left, int right , int third)");
+		//this.left = left;
+		//this.right = right;
+		this.setOprands(left, right);
+		this.third = third;
+	}
+
+	public void sum() {
+		System.out.println("덧셈 결과 :"+(this.left + this.right + this.third));
+	}
+
+	public void avg() {
+		System.out.println("평균 결과 : "+ (this.left + this.right + this.third) / 2);
+	}
+}
+
+class SubstractionableCalculator extends Calculator {
+	public void substract() {
+		System.out.println(this.left - this.right);
+	}
+}
+
+public class CalculatorDemo1 {
+
+	public static void main(String[] args) {
+
+		Calculator c1 = new Calculator();
+		c1.setOprands(10, 20);
+		c1.sum();
+		c1.avg();
+		//c1.substract();
+		
+		c1.setOprands(10, 20,30);
+		c1.sum();
+		c1.avg();
+	}
+}
